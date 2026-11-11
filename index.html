@@ -20,7 +20,8 @@
             padding: 20px;
         }
         .card {
-            background: rgba(255, 255, 255, 0.96);
+            /* Fondo suave en degradado pastel en lugar de blanco puro */
+            background: linear-gradient(180deg, #ffffff 0%, #fff0f5 100%);
             border-radius: 25px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             max-width: 480px;
@@ -39,7 +40,7 @@
             border: 5px solid #fbc02d;
             box-shadow: 0 8px 20px rgba(251, 192, 45, 0.45);
             overflow: hidden;
-            background-color: #fff;
+            background-color: transparent;
         }
         .virgen-img {
             width: 100%;
@@ -108,9 +109,8 @@
 <body>
 
     <div class="card">
-        <!-- Nombre exacto respetando la V mayúscula del archivo local -->
         <div class="virgen-container">
-            <img src="./Virgen.jpg" alt="Virgen María con Rosario" class="virgen-img">
+            <img src="Virgen.jpg" alt="Virgen María con Rosario" class="virgen-img">
         </div>
 
         <div class="decor-top">🌹 🎂 🕊️</div>
@@ -129,7 +129,6 @@
         <button class="btn-celebrate" onclick="lanzarConfeti()">✨ ¡Llover Bendiciones y Confeti! ✨</button>
     </div>
 
-    <!-- Librería para el efecto de confeti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
