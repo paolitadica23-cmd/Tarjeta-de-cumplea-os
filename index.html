@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card h1 {
+            color: #e74c3c;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        .card h2 {
+            color: #34495e;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .card p {
+            color: #555555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn-celebrate {
+            background-color: #e74c3c;
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn-celebrate:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1 id="title">¡Feliz Cumpleaños! 🎉</h1>
+        <h2 id="name">¡Felicidades!</h2>
+        <p id="message">Deseándote un día lleno de alegría, salud y muchos éxitos en este nuevo año de vida.</p>
+        <button class="btn-celebrate" onclick="lanzarConfeti()">🎈 ¡Celebrar!</button>
+    </div>
+
+    <!-- Librería para efecto de confeti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // Lectura de parámetros desde la URL para hacer la tarjeta reutilizable
+        const params = new URLSearchParams(window.location.search);
+        const nombre = params.get('nombre');
+        const mensaje = params.get('mensaje');
+
+        if (nombre) {
+            document.getElementById('name').textContent = `¡Feliz Cumpleaños, ${JUANITOOOOOOO}! 🎂`;
+        }
+        if (mensaje) {
+            document.getElementById('message').textContent = mensaje;
+        }
+
+        function lanzarConfeti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        // Lanza confeti automáticamente al cargar
+        window.onload = lanzarConfeti;
+    </script>
+</body>
+</html>
