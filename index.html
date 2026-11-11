@@ -20,15 +20,15 @@
             padding: 20px;
         }
         .card {
-            /* Nuevo fondo colorido pastel cálido */
-            background: linear-gradient(165deg, #fff5f5 0%, #ffe3ec 50%, #f0e6ff 100%);
+            /* Fondo azul degradado a violeta suave */
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
             border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
             max-width: 480px;
             width: 100%;
             text-align: center;
             padding: 35px 25px;
-            border: 4px solid rgba(255, 255, 255, 0.8);
+            border: 4px solid #ffffff;
             position: relative;
             overflow: hidden;
         }
@@ -38,7 +38,7 @@
             margin: 0 auto 15px auto;
             border-radius: 50%;
             border: 5px solid #fbc02d;
-            box-shadow: 0 8px 20px rgba(251, 192, 45, 0.45);
+            box-shadow: 0 8px 20px rgba(251, 192, 45, 0.5);
             overflow: hidden;
             background-color: transparent;
         }
@@ -52,13 +52,13 @@
             margin-bottom: 5px;
         }
         .card h1 {
-            color: #c2185b;
+            color: #4a148c;
             font-size: 2.2rem;
             margin-bottom: 5px;
             font-weight: 800;
         }
         .card h2 {
-            color: #1976d2;
+            color: #0d47a1;
             font-size: 1.5rem;
             margin-bottom: 20px;
         }
@@ -69,7 +69,7 @@
             padding: 18px;
             margin-bottom: 20px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(251, 140, 0, 0.15);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .bible-verse {
             color: #e65100;
@@ -84,11 +84,11 @@
             font-size: 0.95rem;
         }
         .custom-message {
-            color: #37474f;
+            color: #1a237e;
             font-size: 1.05rem;
             line-height: 1.6;
             margin-bottom: 25px;
-            font-weight: 500;
+            font-weight: 600;
         }
         .btn-celebrate {
             background: linear-gradient(45deg, #ff4081, #7c4dff);
@@ -99,12 +99,12 @@
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 8px 15px rgba(124, 77, 255, 0.3);
+            box-shadow: 0 8px 15px rgba(124, 77, 255, 0.4);
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .btn-celebrate:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 20px rgba(124, 77, 255, 0.4);
+            box-shadow: 0 12px 20px rgba(124, 77, 255, 0.5);
         }
     </style>
 </head>
@@ -131,4 +131,37 @@
         <button class="btn-celebrate" onclick="lanzarConfeti()">✨ ¡Llover Bendiciones y Confeti! ✨</button>
     </div>
 
-    <script src="
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const nombre = params.get('nombre');
+        const mensaje = params.get('mensaje');
+
+        if (nombre) {
+            document.getElementById('name').textContent = `¡Que la Virgen te bendiga, ${nombre}!`;
+        }
+        if (mensaje) {
+            document.getElementById('message').textContent = mensaje;
+        }
+
+        function lanzarConfeti() {
+            var count = 200;
+            var defaults = { origin: { y: 0.7 } };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
+        }
+
+        window.onload = lanzarConfeti;
+    </script>
+</body>
+</html>
