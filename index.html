@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz Cumpleaños Juanito!</title>
+    <title>¡Feliz Cumpleaños! - Bendiciones</title>
     <style>
         * {
             box-sizing: border-box;
@@ -20,46 +20,61 @@
             padding: 20px;
         }
         .card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             border-radius: 25px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             max-width: 480px;
             width: 100%;
             text-align: center;
-            padding: 40px 30px;
+            padding: 35px 25px;
             border: 4px solid #ffffff;
             position: relative;
             overflow: hidden;
         }
+        .virgen-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            border: 4px solid #fbc02d;
+            box-shadow: 0 8px 20px rgba(251, 192, 45, 0.4);
+            overflow: hidden;
+            background-color: #fff;
+        }
+        .virgen-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .decor-top {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
         }
         .card h1 {
             color: #d81b60;
-            font-size: 2.4rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
             font-weight: 800;
         }
         .card h2 {
             color: #1e88e5;
-            font-size: 1.6rem;
-            margin-bottom: 25px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
         .bible-box {
             background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
             border-left: 5px solid #fb8c00;
             border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
+            padding: 18px;
+            margin-bottom: 20px;
             text-align: center;
         }
         .bible-verse {
             color: #e65100;
             font-style: italic;
             font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 10px;
+            line-height: 1.5;
+            margin-bottom: 8px;
         }
         .bible-ref {
             color: #bf360c;
@@ -68,16 +83,16 @@
         }
         .custom-message {
             color: #424242;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .btn-celebrate {
             background: linear-gradient(45deg, #ff4081, #7c4dff);
             color: #ffffff;
             border: none;
-            padding: 14px 32px;
-            font-size: 1.1rem;
+            padding: 14px 28px;
+            font-size: 1.05rem;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
@@ -93,9 +108,14 @@
 <body>
 
     <div class="card">
-        <div class="decor-top">🎉 🎈 🎂</div>
+        <!-- Imagen de la Virgen -->
+        <div class="virgen-container">
+            <img src="https://images.unsplash.com/photo-1548625361-195fe6144df3?q=80&w=500&auto=format&fit=crop" alt="Virgen María" class="virgen-img">
+        </div>
+
+        <div class="decor-top">🌹 🎂 🕊️</div>
         <h1 id="title">¡Feliz Cumpleaños!</h1>
-        <h2 id="name">¡Bendiciones en tu día!</h2>
+        <h2 id="name">¡Que la Virgen te cubra con su manto!</h2>
         
         <div class="bible-box">
             <p class="bible-verse" id="verse">"Que el Señor te conceda lo que tu corazón desea y haga que se cumplan todos tus planes."</p>
@@ -103,7 +123,7 @@
         </div>
 
         <p class="custom-message" id="message">
-            Que Dios guíe cada uno de tus pasos, te llene de mucha salud, paz, gozo y prosperidad en este nuevo año de vida.
+            Que la Virgen María te proteja, guíe cada uno de tus pasos y te llene de mucha salud, paz y bendiciones en este nuevo año de vida.
         </p>
         
         <button class="btn-celebrate" onclick="lanzarConfeti()">✨ ¡Llover Bendiciones y Confeti! ✨</button>
@@ -117,7 +137,7 @@
         const mensaje = params.get('mensaje');
 
         if (nombre) {
-            document.getElementById('name').textContent = `¡Que Dios te bendiga, ${nombre}!`;
+            document.getElementById('name').textContent = `¡Que la Virgen te bendiga, ${nombre}!`;
         }
         if (mensaje) {
             document.getElementById('message').textContent = mensaje;
